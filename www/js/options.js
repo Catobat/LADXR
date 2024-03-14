@@ -235,6 +235,108 @@ var options =
   ]
  },
  {
+  "key": "randomstartlocation",
+  "category": "Entrances",
+  "short_key": "r",
+  "label": "Random start location",
+  "description": "Randomize where your starting house is located",
+  "multiworld": true,
+  "aesthetic": false,
+  "default": false
+ },
+ {
+  "key": "dungeonshuffle",
+  "category": "Entrances",
+  "short_key": "u",
+  "label": "Dungeon shuffle",
+  "description": "Randomizes the dungeon that each dungeon entrance leads to",
+  "multiworld": true,
+  "aesthetic": false,
+  "default": false
+ },
+ {
+  "key": "entranceshuffle",
+  "category": "Entrances",
+  "short_key": "E",
+  "label": "Entrance randomizer",
+  "description": "Randomizes where overworld entrances lead to.\n[Simple] single entrance caves that contain items are randomized\n[Split] Connector caves are also randomized, in a separate pool from single entrance caves\n[Mixed] Connector caves are also randomized, in the same pool as single entrance caves\n[Wild] Connections can go from overworld to overworld, or inside to inside\n[Chaos] Entrance and exits are decoupled.\n[Insane] Combines chaos and wild, anything goes anywhere, there is no god.\n[Madness] Even worse then insane, it makes it so multiple entrances can lead to the same location\nIf random start location and/or dungeon shuffle is enabled, then these will be shuffled with all the entrances.",
+  "multiworld": true,
+  "aesthetic": false,
+  "default": "none",
+  "options": [
+   {
+    "key": "none",
+    "short": "",
+    "label": "Default"
+   },
+   {
+    "key": "simple",
+    "short": "s",
+    "label": "Simple"
+   },
+   {
+    "key": "split",
+    "short": "S",
+    "label": "Split"
+   },
+   {
+    "key": "mixed",
+    "short": "m",
+    "label": "Mixed"
+   },
+   {
+    "key": "wild",
+    "short": "w",
+    "label": "Wild"
+   },
+   {
+    "key": "chaos",
+    "short": "c",
+    "label": "Chaos"
+   },
+   {
+    "key": "insane",
+    "short": "i",
+    "label": "Insane"
+   },
+   {
+    "key": "madness",
+    "short": "M",
+    "label": "Madness"
+   }
+  ]
+ },
+ {
+  "key": "shufflejunk",
+  "category": "Entrances",
+  "short_key": "j",
+  "label": "Shuffle itemless entrances",
+  "description": "Caves/houses without items are also randomized when entranceshuffle is set",
+  "multiworld": true,
+  "aesthetic": false,
+  "default": false
+ },
+ {
+  "key": "shuffleannoying",
+  "category": "Entrances",
+  "short_key": "a",
+  "label": "Shuffle annoying entrances",
+  "description": "A few very annoying entrances (Mamu and the Raft House) will also be randomized when entranceshuffle is set",
+  "multiworld": true,
+  "aesthetic": false,
+  "default": false
+ },
+ {
+  "key": "shufflewater",
+  "category": "Entrances",
+  "short_key": "w",
+  "label": "Shuffle water entrances",
+  "description": "Entrances that lead to water (Manbo and Damp Cave) will also be randomized when entranceshuffle is set. Use the warp-to-home from the save&quit menu if you get stuck (hold A+B+Start+Select until it works).",
+  "multiworld": true,
+  "aesthetic": false,
+  "default": false
+ },
+ {
   "key": "boss",
   "category": "Gameplay",
   "short_key": "B",
@@ -289,11 +391,33 @@ var options =
   ]
  },
  {
+  "key": "enemies",
+  "category": "Gameplay",
+  "short_key": "e",
+  "label": "Enemizer",
+  "description": "Randomizes which enemies are placed",
+  "multiworld": true,
+  "aesthetic": false,
+  "default": "default",
+  "options": [
+   {
+    "key": "default",
+    "short": "",
+    "label": "None"
+   },
+   {
+    "key": "overworld",
+    "short": "o",
+    "label": "Overworld"
+   }
+  ]
+ },
+ {
   "key": "goal",
   "category": "Gameplay",
   "short_key": "G",
   "label": "Goal",
-  "description": "Changes the goal of the game.\n[1-8 instruments], number of instruments required to open the egg.\n[No instruments] open the egg without instruments, still requires the ocarina with the balled of the windfish\n[Egg already open] the egg is already open, just head for it once you have the items needed to defeat the boss.\n[Randomized instrument count] random number of instruments required to open the egg, between 0 and 8.\n[Random short/long game] random number of instruments required to open the egg, chosen between 0-4 and 5-8 respectively.\n[Seashell hunt] egg will open once you collected 20 seashells. Instruments are replaced by seashells and shuffled.\n[Bingo] Generate a 5x5 bingo board with various goals. Complete one row/column or diagonal to win!\n[Bingo-25] Bingo, but need to fill the whole bingo card to win!\n[Sign Maze] Go on a long trip on the overworld sign maze to open the egg.",
+  "description": "Changes the goal of the game.\n[1-8 instruments], number of instruments required to open the egg.\n[No instruments] open the egg without instruments, still requires the ocarina with the balled of the windfish\n[Egg already open] the egg is already open, just head for it once you have the items needed to defeat the boss.\n[Randomized instrument count] random number of instruments required to open the egg, between 0 and 8.\n[Random short/long game] random number of instruments required to open the egg, chosen between 0-4 and 5-8 respectively.\n[Seashell hunt] egg will open once you collected 20 seashells. Instruments are replaced by seashells and shuffled.\n[Bingo] Generate a 5x5 bingo board with various goals. Complete one row/column or diagonal to win!\n[Double/Triple Bingo] Bingo, but need to complete multiple rows/columns/diagonals to win!\n[Bingo-25] Bingo, but need to fill the whole bingo card to win!\n[Sign Maze] Go on a long trip on the overworld sign maze to open the egg.",
   "multiworld": true,
   "aesthetic": false,
   "default": "8",
@@ -524,88 +648,6 @@ var options =
   ]
  },
  {
-  "key": "randomstartlocation",
-  "category": "Entrances",
-  "short_key": "r",
-  "label": "Random start location",
-  "description": "Randomize where your starting house is located",
-  "multiworld": true,
-  "aesthetic": false,
-  "default": false
- },
- {
-  "key": "dungeonshuffle",
-  "category": "Entrances",
-  "short_key": "u",
-  "label": "Dungeon shuffle",
-  "description": "Randomizes the dungeon that each dungeon entrance leads to",
-  "multiworld": true,
-  "aesthetic": false,
-  "default": false
- },
- {
-  "key": "entranceshuffle",
-  "category": "Entrances",
-  "short_key": "E",
-  "label": "Entrance randomizer",
-  "description": "Randomizes where overworld entrances lead to.\n[Simple] single entrance caves that contain items are randomized\n[Split] Connector caves are also randomized, in a separate pool from single entrance caves\n[Mixed] Connector caves are also randomized, in the same pool as single entrance caves\n\nIf random start location and/or dungeon shuffle is enabled, then these will be shuffled with all the entrances.",
-  "multiworld": true,
-  "aesthetic": false,
-  "default": "none",
-  "options": [
-   {
-    "key": "none",
-    "short": "",
-    "label": "Default"
-   },
-   {
-    "key": "simple",
-    "short": "s",
-    "label": "Simple"
-   },
-   {
-    "key": "split",
-    "short": "S",
-    "label": "Split"
-   },
-   {
-    "key": "mixed",
-    "short": "m",
-    "label": "Mixed"
-   }
-  ]
- },
- {
-  "key": "shufflejunk",
-  "category": "Entrances",
-  "short_key": "j",
-  "label": "Shuffle itemless entrances",
-  "description": "Caves/houses without items are also randomized when 'Entrance randomizer' is not set to 'Default'",
-  "multiworld": true,
-  "aesthetic": false,
-  "default": false
- },
- {
-  "key": "shuffleannoying",
-  "category": "Entrances",
-  "short_key": "a",
-  "label": "Shuffle annoying entrances",
-  "description": "A few very annoying entrances (Mamu and the Raft House) will also be randomized when 'Entrance randomizer' is not set to 'Default'",
-  "multiworld": true,
-  "aesthetic": false,
-  "default": false
- },
- {
-  "key": "shufflewater",
-  "category": "Entrances",
-  "short_key": "w",
-  "label": "Shuffle water entrances",
-  "description": "Entrances that lead to water (Manbo and Damp Cave) will also be randomized when 'Entrance randomizer' is not set to 'Default'. Use the warp-to-home from the save&quit menu if you get stuck (hold A+B+Start+Select until it works).",
-  "multiworld": true,
-  "aesthetic": false,
-  "default": false
- },
- {
   "key": "bowwow",
   "category": "Special",
   "short_key": "g",
@@ -637,7 +679,7 @@ var options =
   "category": "Special",
   "short_key": "O",
   "label": "Overworld",
-  "description": "\n[Dungeon Dive] Create a different overworld where all the dungeons are directly accessible and almost no chests are located in the overworld.\n[No dungeons] All dungeons only consist of a boss fight and a instrument reward. Rest of the dungeon is removed.\n[Random] Creates a randomized overworld WARNING: This will error out often during generation, work in progress.",
+  "description": "\n[Dungeon Dive] Create a different overworld where all the dungeons are directly accessible and almost no chests are located in the overworld.\n[No dungeons] All dungeons only consist of a boss fight and a instrument reward. Rest of the dungeon is removed.\n[Dungeon Chain] Overworld is fully removed and all dungeons are chained together.\n[Random] Creates a randomized overworld WARNING: This will error out often during generation, work in progress.",
   "multiworld": true,
   "aesthetic": false,
   "default": "normal",
@@ -658,9 +700,19 @@ var options =
     "label": "No dungeons"
    },
    {
+    "key": "dungeonchain",
+    "short": "C",
+    "label": "Dungeon chain"
+   },
+   {
     "key": "random",
     "short": "R",
     "label": "Randomized"
+   },
+   {
+    "key": "alttp",
+    "short": "A",
+    "label": "ALttP"
    }
   ]
  },
@@ -916,6 +968,48 @@ var options =
     "key": "Tarin.bin",
     "short": "Tarin.bin>",
     "label": "Tarin"
+   },
+   {
+    "key": "X.bin",
+    "short": "X.bin>",
+    "label": "X"
+   }
+  ]
+ },
+ {
+  "key": "follower",
+  "category": "User options",
+  "short_key": "x",
+  "label": "Follower",
+  "description": "Gives you a pet follower in the game.",
+  "multiworld": true,
+  "aesthetic": true,
+  "default": "",
+  "options": [
+   {
+    "key": "",
+    "short": "",
+    "label": "None"
+   },
+   {
+    "key": "fox",
+    "short": "f",
+    "label": "Fox"
+   },
+   {
+    "key": "navi",
+    "short": "n",
+    "label": "Navi"
+   },
+   {
+    "key": "ghost",
+    "short": "g",
+    "label": "Ghost"
+   },
+   {
+    "key": "yipyip",
+    "short": "y",
+    "label": "YipYip"
    }
   ]
  },
@@ -924,7 +1018,7 @@ var options =
   "category": "User options",
   "short_key": "C",
   "label": "Link's color",
-  "description": "Allows you to force a certain color on link.\n[Normal] color of link depends on the tunic.\n[Green/Yellow/Red/Blue] forces link into one of these colors.\n[?? A/B/C/D] colors of link are usually inverted and color depends on the area you are in.",
+  "description": "Allows you to force a certain color on link.\n[Normal] color of link depends on the tunic.\n[Green/Yellow/Red/Blue] forces link into one of these colors.\n[?? C/D] colors of link are usually inverted and color depends on the area you are in.",
   "multiworld": true,
   "aesthetic": true,
   "default": "-1",
@@ -957,12 +1051,12 @@ var options =
    {
     "key": "4",
     "short": "4",
-    "label": "?? A"
+    "label": "Inverted Red"
    },
    {
     "key": "5",
     "short": "5",
-    "label": "?? B"
+    "label": "Inverted Blue"
    },
    {
     "key": "6",
@@ -981,7 +1075,7 @@ var options =
   "category": "User options",
   "short_key": "M",
   "label": "Music",
-  "description": "\n[Random] Randomizes overworld and dungeon music'\n[Disable] no music in the whole game",
+  "description": "\n[Random] Randomizes overworld and dungeon music'\n[Disable] no music in the whole game\n[Tone shifted] Tone shifts the musics, making it sound different",
   "multiworld": true,
   "aesthetic": true,
   "default": "",
@@ -1000,6 +1094,11 @@ var options =
     "key": "off",
     "short": "o",
     "label": "Disable"
+   },
+   {
+    "key": "shifted",
+    "short": "s",
+    "label": "Tone shifted"
    }
   ]
  }
