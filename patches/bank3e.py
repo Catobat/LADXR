@@ -43,6 +43,17 @@ def addBank3E(rom, seed, settings):
         ld   [$2100], a
         ret
     """))
+    
+    rom.patch(0x00, 0x3E47, ASM("call $6414"), ASM("""
+        call $7D00
+    """))
+    
+    rom.patch(0x02, 0x3D00, "00" * 16, ASM("""
+        call $6414
+        ld   a, $20
+        rst  8
+        ret
+    """), fill_nop=True)
 
     my_path = os.path.dirname(__file__)
     asm = Assembler()

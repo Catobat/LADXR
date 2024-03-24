@@ -73,6 +73,7 @@ GiveItemFromChestMultiworld:
 
 GiveItemFromChest:
     call IncreaseCheckCounter
+    call DrawCheckCounter
     ldh  a, [$FFF1] ; Load active sprite variant
 
     rst  0 ; JUMP TABLE
@@ -1041,3 +1042,42 @@ IncreaseCheckCounter:
     ldi  [hl], a
     ret  nc
     jr   .loop
+
+DrawCheckCounter:
+    call $27D0 ; Enable SRAM
+    ld   a, [$D600]
+    ld   e, a
+    ld   d, $00
+    add  $06
+    ld   [$D600], a
+    ld   hl, $D601
+    add  hl, de
+    ld   a, $9C
+    ldi  [hl], a
+    ld   a, $0A
+    ldi  [hl], a
+    ld   a, $02
+    ldi  [hl], a
+    push hl
+    ld   a, [$B011]
+    and  $0F
+    ld   e, a
+    add  $B0
+    pop  hl
+    ldi  [hl], a
+    push hl
+    ld   a, [$B010]
+    swap a
+    and  $0F
+    add  $B0
+    pop  hl
+    ldi  [hl], a
+    push hl
+    ld   a, [$B010]
+    and  $0F
+    add  $B0
+    pop  hl
+    ldi  [hl], a
+    xor  a
+    ldi  [hl], a
+    ret
