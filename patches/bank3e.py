@@ -50,7 +50,7 @@ def addBank3E(rom, seed, settings):
     
     rom.patch(0x02, 0x3D00, "00" * 16, ASM("""
         call $6414
-        ld   a, $20
+        ld   a, $11
         rst  8
         ret
     """), fill_nop=True)

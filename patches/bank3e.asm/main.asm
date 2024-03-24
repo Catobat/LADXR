@@ -21,7 +21,7 @@ MainJumpTable:
         dw   GiveItemAndMessageForRoomMultiworld  ; E
         dw   RenderOwlStatueItem                  ; F
         dw   UpdateInventoryMenu                  ; 10
-        dw   DrawCheckCounter                     ; 20
+        dw   DrawCheckCounter                     ; 11
 
 StartGameMarinMessage:
         ; Injection to reset our frame counter
